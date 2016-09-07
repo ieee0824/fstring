@@ -60,12 +60,11 @@ func benchFastString02() string {
 }
 
 func main() {
+	fmt.Println("normal add")
 	ds := benchDefaultStr()
-	fs00 := benchFastString00()
-	fs01 := benchFastString01()
-	fs02 := benchFastString02()
+	fmt.Println("fast add")
+	fs := benchFastString02()
 
-	fmt.Println(ds == fs00)
-	fmt.Println(ds == fs01)
-	fmt.Println(ds == fs02)
+	fmt.Println("diff")
+	fmt.Println(ds == fs)
 }
