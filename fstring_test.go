@@ -90,3 +90,14 @@ func TestAddNotString(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestAddStrings(t *testing.T) {
+	str0 := "huga"
+	str1 := "hoge"
+
+	fs := New(str0).AddStrings(str1).String()
+
+	if fs != str0+str1 {
+		t.Fatal(fs)
+	}
+}

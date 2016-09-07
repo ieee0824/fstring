@@ -46,6 +46,19 @@ func (s *Strings) Add(str interface{}) error {
 	return nil
 }
 
+func (s *Strings) AddStrings(str interface{}) *Strings {
+	if st, ok := str.(string); ok {
+		s.str = append(s.str, castStr2Byte(st)...)
+	} else if st, ok := str.(Strings); ok {
+		s.str = append(s.str, st.str...)
+	} else if st, ok := str.(*Strings); ok {
+		s.str = append(s.str, st.str...)
+	} else {
+		return nil
+	}
+	return s
+}
+
 func (s *Strings) Len() int {
 	return len(string(s.str))
 }
